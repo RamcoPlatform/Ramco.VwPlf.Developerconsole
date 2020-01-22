@@ -1,0 +1,116 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+/********************************************************************************************************
+* Copyright @2004, RAMCO SYSTEMS,  All rights reserved.													
+* Application/Module Name   :<#= ecrOptions.Component.ToLower() #>0.cs
+* Code Generated on         :<#= DateTime.Now #>
+* Code Generated From       :<#= string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}",ecrOptions.Customer, ecrOptions.Project, ecrOptions.Ecrno, ecrOptions.Model, ecrOptions.User, ecrOptions.DB, ecrOptions.CodegenClient) #>
+* Revision/Version #        :
+* Purpose                   :
+* Modifications             :
+* Modifier Name & Date      :
+********************************************************************************************************/
+using System;
+using System.Reflection;
+using System.EnterpriseServices;
+using System.Diagnostics;
+using System.Runtime.Remoting;
+[assembly:ApplicationActivation(ActivationOption.Server)]
+[assembly:ApplicationAccessControlAttribute(false,AccessChecksLevel=AccessChecksLevelOption.ApplicationComponent)]
+namespace com.ramco.vw.<#= ecrOptions.Component.ToLower() #>.trans
+{
+    [Transaction(TransactionOption.Supported,Isolation = TransactionIsolationLevel.ReadCommitted)]
+    [EventTrackingEnabled(true)]
+    public class C<#= ecrOptions.Component.ToLower() #>0 :ServicedComponent
+    {
+        public const int ATMA_SUCCESS = 0;
+        public const int ATMA_FAILURE = 999;
+        DefaultTraceListener output = new DefaultTraceListener();
+        public int ProcessDocument(string szInMtd,string szServiceName ,string szSessionToken ,out string szOutMtd)
+        {
+            try
+            {
+                szOutMtd = "";
+                Type myType = Type.GetType("com.ramco.vw.<#= ecrOptions.Component.ToLower() #>.service.C"+szServiceName.Trim().ToLower());
+                object myObject = Activator.CreateInstance(myType); 
+                object[] args = new object[]{szInMtd,szSessionToken,szOutMtd};
+                ParameterModifier pm = new ParameterModifier(3);
+                pm[0] = false;
+                pm[1] = false;
+                pm[2] = true;
+                ParameterModifier[] mods= {pm};
+                object c = myType.InvokeMember("ProcessService", BindingFlags.InvokeMethod,null, myObject, args, mods, null, null);
+                szOutMtd = args[2].ToString();
+                if ((int)c == ATMA_FAILURE)
+                {
+                    return ATMA_FAILURE;
+                }
+                else if ((int)c == ATMA_SUCCESS)
+                {
+                    return ATMA_SUCCESS;
+                }
+            }
+            catch(Exception e)
+            {
+               output.WriteLine("C<#= ecrOptions.Component.ToLower() #>0.ProcessDocument - General Exception :");
+               output.WriteLine(e.Message);
+               szOutMtd = "";
+               return ATMA_FAILURE;
+             }
+             finally
+             {
+                 output.Dispose();
+                 base.Dispose(true);
+             }
+            return ATMA_SUCCESS;
+          }
+          public C<#= ecrOptions.Component.ToLower() #>0()
+          {
+          }
+	public int PassiveProcessDocument(string szInMtd, string sziEDKPSPath, string szSessionToken, out string szOutMtd)
+	{
+		DefaultTraceListener output = new DefaultTraceListener();
+		try
+		{
+			object[] args = null;
+			object myObj = null;
+			Type myType = null;
+			szOutMtd = "";
+			myObj = Activator.CreateInstance("VWRuleEngine, Version=1.4.3.12, Culture=Neutral, PublicKeyToken = 3a721247b727f8b9", "com.ramco.vw.edk.PassiveProcessDocument").Unwrap();
+			args = new object[] { szInMtd, szSessionToken, sziEDKPSPath, false, szOutMtd };
+			myType = myObj.GetType();
+			ParameterModifier pm = new ParameterModifier(3);
+			pm[0] = false;
+			pm[1] = false;
+			pm[2] = true;
+			ParameterModifier[] mods = { pm };
+			object c = myType.InvokeMember("ProcessDocument", BindingFlags.InvokeMethod, null, myObj, args, mods, null, null);
+			szOutMtd = args[4].ToString();
+			if ((int)c == ATMA_FAILURE)
+			{
+				return ATMA_FAILURE;
+			}
+			else if ((int)c == ATMA_SUCCESS)
+			{
+				return ATMA_SUCCESS;
+			}
+		}
+		catch (Exception e)
+		{
+			output.WriteLine("C<#= ecrOptions.Component.ToLower() #>0.ProcessDocument - General Exception :");
+			output.WriteLine(e.Message);
+			szOutMtd = "";
+			return ATMA_FAILURE;
+		}
+		finally
+		{
+			output.Dispose();
+			base.Dispose(true);
+		}
+		return ATMA_SUCCESS;
+	}
+    }
+}
+<#+
+	public ECRLevelOptions ecrOptions{get;set;}
+#>

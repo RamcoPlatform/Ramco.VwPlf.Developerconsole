@@ -1,0 +1,48 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+/********************************************************************************************************
+* Copyright @2004, RAMCO SYSTEMS,  All rights reserved.													
+* Application/Module Name   :C<#= ISinfo.ServiceName #>
+* Code Generated on         :<#= DateTime.Now #>
+* Code Generated From       :<#= string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}",ecrOptions.Customer, ecrOptions.Project, ecrOptions.Ecrno, ecrOptions.Model, ecrOptions.User, ecrOptions.DB, ecrOptions.CodegenClient) #>
+* Revision/Version #        :
+* Purpose                   :IS Dump.
+* Modifications             :
+* Modifier Name & Date      :
+********************************************************************************************************/
+using System;
+using System.Collections;
+using System.Collections.Specialized;
+using com.ramco.vw.tp;
+<#= ISinfo.AssemblyDescr #>
+namespace com.ramco.vw.<#= ISinfo.ComponentName #>.service
+{
+    public class C<#= ISinfo.ServiceName #>:CUtil
+    {
+		<#
+		foreach(string segment in ISinfo.Segments)
+		{#>public NameValueCollection nvc<#= segment#> = new NameValueCollection();
+		public Hashtable ht<#= segment#> = new Hashtable();
+		<#	
+		}
+		#>
+		public int ProcessService(string szInMtd,string szSessionTokenTemp,out string szOutMtd)
+		{
+			szOutMtd="";
+			return 0;
+		}
+		public override int getFieldValue(string SegName,long InstNumber,string DataItem,string DIValue)
+		{
+			return 0;
+		}
+     }
+}     
+
+<#+
+private ISDumpInfo ISinfo;
+public ECRLevelOptions ecrOptions{get;set;}
+public ISDumpTemplate(ISDumpInfo info)
+{
+	ISinfo = info;
+}
+#>

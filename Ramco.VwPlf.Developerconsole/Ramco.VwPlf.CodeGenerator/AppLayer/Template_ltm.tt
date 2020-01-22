@@ -1,0 +1,106 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+/********************************************************************************************************
+* Copyright @2004, RAMCO SYSTEMS,  All rights reserved.													
+* Application/Module Name   :<#= ecrOptions.Component.ToLower() #>_ltm.cs
+* Code Generated on         :<#= DateTime.Now #>
+* Code Generated From       :<#= string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}",ecrOptions.Customer, ecrOptions.Project, ecrOptions.Ecrno, ecrOptions.Model, ecrOptions.User, ecrOptions.DB, ecrOptions.CodegenClient) #>
+* Revision/Version #        :
+* Purpose                   :
+* Modifications             :
+* Modifier Name & Date      :
+********************************************************************************************************/
+using System;
+using System.Reflection;
+using System.Diagnostics;
+using System.Transactions;
+using Ramco.VW.RT.GatewayServer.VWService;
+using VirtualWorksRT.tp.Utilities;
+namespace com.ramco.vw.<#= ecrOptions.Component.ToLower() #>.service
+{
+//transction scope - Dotnet ltm transaction scrope - 0 - Required, 1 - Required New, 2 - Supported
+//outZBytes - true - zipped byte[]  , false - string
+//tdFormat = 0 - String , 1- JSON , 2-Dataset
+	public class C<#= ecrOptions.Component.ToLower() #>_ltm
+	{
+		public const int ATMA_SUCCESS = 0;
+		public const int ATMA_FAILURE = 999;
+
+		public int ProcessDocument(string szInMtd, string szServiceName, string szSessionToken, int transactionScope, bool outZBytes, int tdFormat, out string szOutMtd, out byte[] byteOutMtd)
+		{
+			DefaultTraceListener output = new DefaultTraceListener();
+			try
+			{
+				output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_ltm.ProcessDocument Begin - :" + szServiceName );
+				VWComponentProperties vwComponentProperties = VWHelper.GetVWComponentProperties("<#= ecrOptions.Component.ToLower() #>", szServiceName, transactionScope);
+				using (TransactionScope scope = new TransactionScope(vwComponentProperties.TransScopeOption, vwComponentProperties.TransOptions))
+				{
+					szOutMtd = "";
+					byteOutMtd = null;
+					object returnVal = null;
+					ParameterModifier pm;
+					object[] args = null;
+
+					Type myType = Type.GetType("com.ramco.vw.<#= ecrOptions.Component.ToLower() #>.service.C" + szServiceName.Trim().ToLower());
+					object myObject = Activator.CreateInstance(myType);
+
+					if (outZBytes == true)
+					{//zipped byte td
+						output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_ltm.ProcessDocument OutTd to be processed as ByteArray format for service : " + szServiceName);
+						args = new object[] { szInMtd, szSessionToken, false, byteOutMtd };
+
+
+						pm = new ParameterModifier(4);
+						pm[0] = false;
+						pm[1] = false;
+						pm[2] = false;
+						pm[3] = true;
+						ParameterModifier[] mods = { pm };
+						returnVal = myType.InvokeMember("ProcessZippedService", BindingFlags.InvokeMethod, null, myObject, args, mods, null, null);
+						byteOutMtd = (byte[])args[3];
+					}
+					else
+					{//string td
+						output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_ltm.ProcessDocument OutTd to be processed as String format for service : " + szServiceName);
+						args = new object[] { szInMtd, szSessionToken, szOutMtd };
+						pm = new ParameterModifier(3);
+						pm[0] = false;
+						pm[1] = false;
+						pm[2] = true;
+						ParameterModifier[] mods = { pm };
+						returnVal = myType.InvokeMember("ProcessService", BindingFlags.InvokeMethod, null, myObject, args, mods, null, null);
+						szOutMtd = args[2].ToString();
+					}
+
+
+					if ((int)returnVal == ATMA_FAILURE)
+					{
+						output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_ltm.ProcessDocument End failure - :" + szServiceName);
+						return ATMA_FAILURE;
+					}
+					else if ((int)returnVal == ATMA_SUCCESS && szOutMtd.Length != 0)
+					{
+						scope.Complete();
+						output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_ltm.ProcessDocument End success - :" + szServiceName);
+						return ATMA_SUCCESS;
+					}
+				}
+			}
+			catch(Exception e)
+			{
+				output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_ltm.ProcessDocument - General Exception :"  + szServiceName + " - " + e.Message);
+				szOutMtd = "";
+				byteOutMtd = null;
+				return ATMA_FAILURE;
+			}
+			finally
+			{
+				output.Dispose();
+			}
+			return ATMA_SUCCESS;
+		}
+	}
+}
+<#+
+	public ECRLevelOptions ecrOptions{get;set;}
+#>

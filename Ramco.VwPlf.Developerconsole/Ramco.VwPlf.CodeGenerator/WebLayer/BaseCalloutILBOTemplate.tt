@@ -1,0 +1,2691 @@
+﻿<#@ template debug = "true" language="C#" #>
+<#@ output extension = ".cs" #>
+<#@ import namespace = "System.IO" #>
+/********************************************************************************************************
+* Copyright @2004, RAMCO SYSTEMS,  All rights reserved.													
+* Application/Module Name   :<#= sClassName #>.cs
+* Code Generated on         :<#= DateTime.Now #>
+* Code Generated From       :<#= string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}",ecrOptions.Customer, ecrOptions.Project, ecrOptions.Ecrno, ecrOptions.Model, ecrOptions.User, ecrOptions.DB, ecrOptions.CodegenClient) #>
+* Revision/Version #        :
+* Purpose                   :Base callout ilbo cs
+* Modifications             :
+* Modifier Name & Date      :
+********************************************************************************************************/
+using System;
+using System.Web;
+using System.Xml;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Ramco.VW.RT.Web.Core;
+using Ramco.VW.RT.Web.Controls;
+using Ramco.VW.RT.AsyncResult;
+using Ramco.VW.RT.State;
+namespace <#= sNamespaceName #>
+{
+    /// <summary>
+    /// This file defines all the methods of <#= sClassName #> class.
+    /// </summary>
+    #region <#= sClassName #> class
+
+    public class <#= sClassName #> : IILBO
+    {
+
+        /**************************************************************************
+        Function Name   : GetControl
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public IControl GetControl(string sControlID)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "GetControl(sControlID = \"" + sControlID + "\")", "ep_ui_prf ");
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : GetControl(sControlID = \"" + sControlID + "\")", "ILBO0004", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetDataItem
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public string GetDataItem(string sLinkID, string sDataItemName, long nInstance)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "GetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ")", "ep_ui_prf ");
+                return "";
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : GetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ")", "ILBO0005", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : SetDataItem
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public void SetDataItem(string sLinkID, string sDataItemName, long nInstance, string sValue)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "SetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ", sValue = \"" + sValue + "\")", "ep_ui_prf ");
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : SetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ", sValue = \"" + sValue + "\")", "ILBO0007", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : UpdateScreenData
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public void UpdateScreenData(string sTabName, XmlNode nodeScreenInfo)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "UpdateScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo =\"" + nodeScreenInfo.OuterXml + "\")", "ep_ui_prf ");
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : UpdateScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo =\"" + nodeScreenInfo.OuterXml + "\")", "ILBO0010", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetVariable
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public IGlobalVariable GetVariable(string sVariable)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "GetVariable(sVariable = \"" + sVariable + "\")", "ep_ui_prf ");
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : GetVariable(sVariable = \"" + sVariable + "\")", "ILBO0008", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : PerformTask
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public bool PerformTask(string sControlID, string sEventName, string sEventDetails, out string sTargetURL)
+        {
+            sTargetURL = "";
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ep_ui_prf");
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetDataItemInstances
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public long GetDataItemInstances(string sLinkID, string sDataItemName)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "GetDataItemInstances(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\")", "ep_ui_prf ");
+                return 1;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : GetDataItemInstances(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\")", "ILBO0006", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : PreProcess1
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public bool PreProcess1()
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "PreProcess1()", "ep_ui_prf ");
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : PreProcess1()", "ILBO0011", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : PreProcess2
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public bool PreProcess2()
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "PreProcess2()", "ep_ui_prf ");
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : PreProcess2()", "ILBO0012", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : PreProcess3
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public bool PreProcess3()
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "PreProcess3()", "ep_ui_prf ");
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : PreProcess3()", "ILBO0013", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : ResetControls
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public void ResetControls()
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "ResetControls()", "ep_ui_prf ");
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : ResetControls()", "ILBO0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetScreenData
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public void GetScreenData(string sTabName, XmlNode nodeScreenInfo)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "GetScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo =\"" + nodeScreenInfo.OuterXml + "\")", "ep_ui_prf ");
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : GetScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\")", "ILBO0016", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetTaskData
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public void GetTaskData(string sTabName, string sTaskName, XmlNode nodeScreenInfo)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "GetTaskData(sTabName = \"" + sTabName + "\", sTaskName = \"" + sTaskName + "\",  nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\" )", "ep_ui_prf ");
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : GetTaskData(sTabName = \"" + sTabName + "\", sTaskName = \"" + sTaskName + "\",  nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\" )", "ILBO0017", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetDisplayURL
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public string GetDisplayURL(string sTabName)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "GetDisplayURL(sTabName = \"" + sTabName + "\")", "ep_ui_prf ");
+                return "";
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : GetDisplayURL(sTabName = \"" + sTabName + "\")", "ILBO0018", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : SetContextValue
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public void SetContextValue(string sContextName, object sContextValue)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "SetContextValue(sContextName = \"" + sContextName + "\", sContextValue = " + sContextValue + ")", "ep_ui_prf ");
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : SetContextValue(sContextName = \"" + sContextName + "\", sContextValue = " + sContextValue + ")", "ILBO0015", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetContextValue
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public object GetContextValue(string sContextName)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "GetContextValue(sContextName = \"" + sContextName + "\")", "ep_ui_prf ");
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("ep_ui_prf : GetContextValue(sContextName = \"" + sContextName + "\")", "ILBO0014", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : Constructor_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the start of  method ILBOCode()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public bool Constructor_Start(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceError, "<#= sClassName #>()", "<#= sClassName #> ");
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool Constructor_Start(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceError, "<#= sClassName #>()", "<#= sClassName #> ");
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : Constructor_After_AddViewInfo
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, in the method ILBOCode() after the statement AddViewInfo();
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public bool Constructor_After_AddViewInfo(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceError, "<#= sClassName #>()", "<#= sClassName #>");
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        public bool Constructor_After_AddViewInfo(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceError, "<#= sClassName #>()", "<#= sClassName #>");
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : Constructor_After_AddViewInfo
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, in the method ILBOCode() after the statement InitializeControls();
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public bool Constructor_After_InitializeControls(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceError, "<#= sClassName #>()", "<#= sClassName #>");
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        public bool Constructor_After_InitializeControls(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceError, "<#= sClassName #>()", "<#= sClassName #>");
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : Constructor_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the end of  the method ILBOCode()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public bool Constructor_End(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceError, "<#= sClassName #>()", "<#= sClassName #>");
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool Constructor_End(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceError, "<#= sClassName #>()", "<#= sClassName #>");
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : InitializeControls_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the start of  the method InitializeControls()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public void InitializeControls_Start(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : InitializeControls()", "ILBO0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void InitializeControls_Start(ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : InitializeControls()", "ILBO0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : InitializeControls_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the end of the method InitializeControls()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public void InitializeControls_End(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : InitializeControls()", "ILBO0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void InitializeControls_End(ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : InitializeControls()", "ILBO0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : InitializeControls_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the catch block of the method InitializeControls()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems, ref Exception ex
+
+        ***************************************************************************/
+
+        public void InitializeControls_ErrHdlr(ref Dictionary<string, Object> htContextItems, ref Exception exx)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : InitializeControls()", "ILBO0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void InitializeControls_ErrHdlr(ref Hashtable htContextItems, ref Exception exx)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : InitializeControls()", "ILBO0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : ResetControls_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the start the method ResetControls()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public void ResetControls_Start(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : ResetControls()", "ILBO0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void ResetControls_Start(ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : ResetControls()", "ILBO0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : ResetControls_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the end of the method ResetControls()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public void ResetControls_End(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : ResetControls()", "ILBO0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void ResetControls_End(ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : ResetControls()", "ILBO0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : ResetControls_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, in the catch block of the method ResetControls()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public void ResetControls_ErrHdlr(ref Dictionary<string, Object> htContextItems, ref Exception exx)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : ResetControls()", "ILBO0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void ResetControls_ErrHdlr(ref Hashtable htContextItems, ref Exception exx)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : ResetControls()", "ILBO0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : AddViewInfo_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the start of the method  AddViewInfo()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public void AddViewInfo_Start(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : AddViewInfo()", "ILBO0003", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void AddViewInfo_Start(ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : AddViewInfo()", "ILBO0003", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : AddViewInfo_After_Context
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, in the method AddViewInfo() after the statement ISManager.GetContextObject()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems, ref ISessionManager ISManager, ref IContext ISMContext
+
+        ***************************************************************************/
+        public void AddViewInfo_After_Context(ref Dictionary<string, Object> htContextItems, ref ISessionManager ISManager, ref IContext ISMContext)
+        {
+            try
+            {
+
+            }
+
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : AddViewInfo()", "ILBO0003", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void AddViewInfo_After_Context(ref Hashtable htContextItems, ref ISessionManager ISManager, ref IContext ISMContext)
+        {
+            try
+            {
+
+            }
+
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : AddViewInfo()", "ILBO0003", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+
+        /**************************************************************************
+        Function Name   : AddViewInfo_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the end of the method  AddViewInfo()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems, ref ISessionManager ISManager, ref IContext ISMContext
+        ***************************************************************************/
+        public void AddViewInfo_End(ref Dictionary<string, Object> htContextItems, ref ISessionManager ISManager, ref IContext ISMContext)
+        {
+            try
+            {
+
+            }
+
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : AddViewInfo()", "ILBO0003", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void AddViewInfo_End(ref Hashtable htContextItems, ref ISessionManager ISManager, ref IContext ISMContext)
+        {
+            try
+            {
+
+            }
+
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : AddViewInfo()", "ILBO0003", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : AddViewInfo_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the catch block of the method  AddViewInfo()
+                    The base method will not have any parameters
+                    The wrapped method will have following parameters - ref Hashtable htContextItems, ref ISessionManager ISManager, ref IContext ISMContext, ref Exception exx
+        ***************************************************************************/
+
+        public void AddViewInfo_ErrHdlr(ref Dictionary<string, Object> htContextItems, ref ISessionManager ISManager, ref IContext ISMContext, ref Exception exx)
+        {
+            try
+            {
+
+            }
+
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : AddViewInfo()", "ILBO0003", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void AddViewInfo_ErrHdlr(ref Hashtable htContextItems, ref ISessionManager ISManager, ref IContext ISMContext, ref Exception exx)
+        {
+            try
+            {
+
+            }
+
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : AddViewInfo()", "ILBO0003", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetControl_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the end of the method  GetControl()
+						The base method will have following parameter - string sControlID
+						The wrapped method will have following parameters - ref Hashtable htContextItems, ref string sControlID
+        ***************************************************************************/
+
+        public IControl GetControl_Start(ref Dictionary<string, Object> htContextItems, ref string sControlID)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetControl(sControlID = \"" + sControlID + "\")", "ILBO0004", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public IControl GetControl_Start(ref Hashtable htContextItems, ref string sControlID)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetControl(sControlID = \"" + sControlID + "\")", "ILBO0004", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+
+        /**************************************************************************
+        Function Name   : GetControl_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the end of the method  GetControl()
+						The base method will have following parameter - string sControlID
+						The wrapped method will have following parameters - ref Hashtable htContextItems, ref string sControlID
+        ***************************************************************************/
+
+        public IControl GetControl_End(ref Dictionary<string, Object> htContextItems, ref string sControlID)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetControl(sControlID = \"" + sControlID + "\")", "ILBO0004", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public IControl GetControl_End(ref Hashtable htContextItems, ref string sControlID)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetControl(sControlID = \"" + sControlID + "\")", "ILBO0004", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetControl_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the catch block of the method  GetControl()
+						The base method will have following parameter - string sControlID
+						The wrapped method will have following parameters - ref Hashtable htContextItems, ref string sControlID
+        ***************************************************************************/
+
+        public IControl GetControl_ErrHdlr(ref Dictionary<string, Object> htContextItems, ref string sControlID, ref Exception exx)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetControl(sControlID = \"" + sControlID + "\")", "ILBO0004", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public IControl GetControl_ErrHdlr(ref Hashtable htContextItems, ref string sControlID, ref Exception exx)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetControl(sControlID = \"" + sControlID + "\")", "ILBO0004", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetDataItem_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the start of the method  GetDataItem()
+                    The base method will have following parameter - string sLinkID, string sDataItemName, long nInstance,
+                    The wrapped method will have following parameters - ref string sLinkID, ref string sDataItemName, ref long nInstance, ref Hashtable htContextItems
+        ***************************************************************************/
+
+        public string GetDataItem_Start(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ")", "ILBO0005", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public string GetDataItem_Start(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref Hashtable htContextItems)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ")", "ILBO0005", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetDataItem_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the end of the method  GetDataItem()
+						The base method will have following parameter - string sLinkID, string sDataItemName, long nInstance,
+						The wrapped method will have following parameters - ref string sLinkID, ref string sDataItemName, ref long nInstance, ref Hashtable htContextItems
+        ***************************************************************************/
+
+        public string GetDataItem_End(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ")", "ILBO0005", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public string GetDataItem_End(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref Hashtable htContextItems)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ")", "ILBO0005", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetDataItem_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the catch block of the method  GetDataItem()
+						The base method will have following parameter - string sLinkID, string sDataItemName, long nInstance,
+						The wrapped method will have following parameters - ref string sLinkID, ref string sDataItemName, ref long nInstance, ref Hashtable htContextItems, ref Exception exx
+        ***************************************************************************/
+
+        public string GetDataItem_ErrHdlr(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref Dictionary<string, Object> htContextItems, ref Exception exx)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ")", "ILBO0005", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public string GetDataItem_ErrHdlr(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref Hashtable htContextItems, ref Exception exx)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ")", "ILBO0005", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetDataItemInstances_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the start of the method  GetDataItemInstances()
+						The base method will have following parameter - string sLinkID, string sLinkID,string sDataItemName
+						The wrapped method will have following parameters - string sLinkID,string sDataItemName, ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public long GetDataItemInstances_Start(ref string sLinkID, ref string sDataItemName, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return 1;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItemInstances(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\")", "ILBO0006", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public long GetDataItemInstances_Start(ref string sLinkID, ref string sDataItemName, ref Hashtable htContextItems)
+        {
+            try
+            {
+                return 1;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItemInstances(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\")", "ILBO0006", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetDataItemInstances_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the end of the method  GetDataItemInstances()
+						The base method will have following parameter - string sLinkID, string sLinkID,string sDataItemName
+						The wrapped method will have following parameters - string sLinkID,string sDataItemName, ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public long GetDataItemInstances_End(ref string sLinkID, ref string sDataItemName, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return 1;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItemInstances(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\")", "ILBO0006", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public long GetDataItemInstances_End(ref string sLinkID, ref string sDataItemName, ref Hashtable htContextItems)
+        {
+            try
+            {
+                return 1;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItemInstances(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\")", "ILBO0006", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetDataItemInstances_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, in the catch block of the method  GetDataItemInstances()
+						The base method will have following parameter - string sLinkID, string sLinkID,string sDataItemName
+						The wrapped method will have following parameters - string sLinkID,string sDataItemName, ref Hashtable htContextItems, ref Exception exx
+
+        ***************************************************************************/
+
+        public long GetDataItemInstances_ErrHdlr(ref string sLinkID, ref string sDataItemName, ref Dictionary<string, Object> htContextItems, ref Exception exx)
+        {
+            try
+            {
+                return 1;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItemInstances(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\")", "ILBO0006", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public long GetDataItemInstances_ErrHdlr(ref string sLinkID, ref string sDataItemName, ref Hashtable htContextItems, ref Exception exx)
+        {
+            try
+            {
+                return 1;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDataItemInstances(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\")", "ILBO0006", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : SetDataItem_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the start of the method SetDataItem()
+						The base method will have following parameter - string sLinkID,string sDataItemName,long nInstance,string sValue
+						The wrapped method will have following parameters - ref string sLinkID, ref string sDataItemName,ref long nInstance,ref string sValue
+        ***************************************************************************/
+
+        public void SetDataItem_Start(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref string sValue, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ", sValue = \"" + sValue + "\")", "ILBO0007", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void SetDataItem_Start(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref string sValue, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ", sValue = \"" + sValue + "\")", "ILBO0007", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : SetDataItem_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the end of the method SetDataItem() 
+						The base method will have following parameter - string sLinkID,string sDataItemName,long nInstance,string sValue
+						The wrapped method will have following parameters - ref string sLinkID, ref string sDataItemName,ref long nInstance,ref string sValue
+        ***************************************************************************/
+        public void SetDataItem_End(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref string sValue, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ", sValue = \"" + sValue + "\")", "ILBO0007", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+        public void SetDataItem_End(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref string sValue, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ", sValue = \"" + sValue + "\")", "ILBO0007", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : SetDataItem_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at catch block of the SetDataItem() 
+						The base method will have following parameter - string sLinkID,string sDataItemName,long nInstance,string sValue
+						The wrapped method will have following parameters - ref string sLinkID, ref string sDataItemName,ref long nInstance,ref string sValue, ref Exception ex
+        ***************************************************************************/
+        public void SetDataItem_ErrHdlr(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref string sValue, ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ", sValue = \"" + sValue + "\")", "ILBO0007", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void SetDataItem_ErrHdlr(ref string sLinkID, ref string sDataItemName, ref long nInstance, ref string sValue, ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetDataItem(sLinkID = \"" + sLinkID + "\", sDataItemName = \"" + sDataItemName + "\", nInstance = " + nInstance + ", sValue = \"" + sValue + "\")", "ILBO0007", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetVariable
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, in the function GetVariable()
+						The base method will have following parameter - string sVariable
+						The wrapped method will have following parameters - ref string sVariable, ref ref Hashtable htContextItems
+        ***************************************************************************/
+
+        public IGlobalVariable GetVariable(ref string sVariable, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetVariable(sVariable = \"" + sVariable + "\")", "ILBO0008", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public IGlobalVariable GetVariable(ref string sVariable, ref Hashtable htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetVariable(sVariable = \"" + sVariable + "\")", "ILBO0008", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : PerformTask_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function PerformTask()
+						The base method will have following parameter - string sControlID, string sEventName, string sEventDetails, out string sTargetURL
+						The wrapped method will have following parameters - string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems
+        ***************************************************************************/
+
+        public bool PerformTask_Start(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Dictionary<string, Object> htContextItems)
+        {
+            sTargetURL = "";
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+
+        public bool PerformTask_Start(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems)
+        {
+            sTargetURL = "";
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : PerformTask_After_Context
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function PerformTask() after the statement ISManager.GetContextObject();
+						The base method will have following parameter - string sControlID, string sEventName, string sEventDetails, out string sTargetURL
+						The wrapped method will have following parameters - string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PerformTask_After_Context(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Dictionary<string, Object> htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker)
+        {
+            sTargetURL = "";
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+        public bool PerformTask_After_Context(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker)
+        {
+            sTargetURL = "";
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : PerformTask_Before_ExecuteService
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function PerformTask() before the statement ExecuteService();
+						The base method will have following parameter - string sControlID, string sEventName, string sEventDetails, out string sTargetURL
+						The wrapped method will have following parameters - string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PerformTask_Before_ExecuteService(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Dictionary<string, Object> htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker)
+        {
+            sTargetURL = "";
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+        public bool PerformTask_Before_ExecuteService(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker)
+        {
+            sTargetURL = "";
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : PerformTask_After_ExecuteService
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function PerformTask() before the statement ExecuteService();
+						The base method will have following parameter - string sControlID, string sEventName, string sEventDetails, out string sTargetURL
+						The wrapped method will have following parameters - string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker, ref bool bServiceResult
+        ***************************************************************************/
+        public bool PerformTask_After_ExecuteService(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Dictionary<string, Object> htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker, ref bool bServiceResult)
+        {
+            sTargetURL = "";
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+
+        public bool PerformTask_After_ExecuteService(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker, ref bool bServiceResult)
+        {
+            sTargetURL = "";
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : PerformTask_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function PerformTask()
+						The base method will have following parameter - string sControlID, string sEventName, string sEventDetails, out string sTargetURL
+						The wrapped method will have following parameters - string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker, ref bool bServiceResult
+        ***************************************************************************/
+        public bool PerformTask_End(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Dictionary<string, Object> htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker, ref bool bServiceResult)
+        {
+            sTargetURL = "";
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+
+        public bool PerformTask_End(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker, ref bool bServiceResult)
+        {
+            sTargetURL = "";
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : PerformTask_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at catch block of the function PerformTask()
+						The base method will have following parameter - string sControlID, string sEventName, string sEventDetails, out string 
+						The wrapped method will have following parameters - string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PerformTask_ErrHdlr(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            sTargetURL = "";
+            try
+            {
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+
+        public bool PerformTask_ErrHdlr(string sControlID, string sEventName, string sEventDetails, out string sTargetURL, ref Hashtable htContextItems, ref Exception ex)
+        {
+            sTargetURL = "";
+            try
+            {
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PerformTask(sControlID = \"" + sControlID + "\",  sEventName = \"" + sEventName + "\", sEventDetails = \"" + sEventDetails + "\")", "ILBO0009", e.Message);
+                return false;
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : UpdateScreenData_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function UpdateScreenData
+						The base method will have following parameter - string sTabName,XmlNode nodeScreenInfo
+						The wrapped method will have following parameters - ref string sTabName,ref XmlNode nodeScreenInfo, ref Hashtable htContextItems
+        ***************************************************************************/
+        public void UpdateScreenData_Start(ref string sTabName, ref XmlNode nodeScreenInfo, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : UpdateScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo =\"" + nodeScreenInfo.OuterXml + "\")", "ILBO0010", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void UpdateScreenData_Start(ref string sTabName, ref XmlNode nodeScreenInfo, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : UpdateScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo =\"" + nodeScreenInfo.OuterXml + "\")", "ILBO0010", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : UpdateScreenData_Inside_SelectCase_TabName
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at the method UpdateScreenData after the statement switch(sTabName.ToLower())
+						The base method will have following parameter - string sTabName,XmlNode nodeScreenInfo
+						The wrapped method will have following parameters - ref string sTabName,ref XmlNode nodeScreenInfo, ref Hashtable htContextItems
+        ***************************************************************************/
+        public void UpdateScreenData_Inside_SelectCase_TabName(ref string sTabName, ref XmlNode nodeScreenInfo, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : UpdateScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo =\"" + nodeScreenInfo.OuterXml + "\")", "ILBO0010", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void UpdateScreenData_Inside_SelectCase_TabName(ref string sTabName, ref XmlNode nodeScreenInfo, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : UpdateScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo =\"" + nodeScreenInfo.OuterXml + "\")", "ILBO0010", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : UpdateScreenData_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the method UpdateScreenData
+						The base method will have following parameter - string sTabName,XmlNode nodeScreenInfo
+						The wrapped method will have following parameters - ref string sTabName,ref XmlNode nodeScreenInfo, ref Hashtable htContextItems
+        ***************************************************************************/
+        public void UpdateScreenData_End(ref string sTabName, ref XmlNode nodeScreenInfo, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : UpdateScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo =\"" + nodeScreenInfo.OuterXml + "\")", "ILBO0010", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void UpdateScreenData_End(ref string sTabName, ref XmlNode nodeScreenInfo, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : UpdateScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo =\"" + nodeScreenInfo.OuterXml + "\")", "ILBO0010", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : UpdateScreenData_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at case block of the method UpdateScreenData
+						The base method will have following parameter - string sTabName,XmlNode nodeScreenInfo
+						The wrapped method will have following parameters - ref string sTabName,ref XmlNode nodeScreenInfo, ref Hashtable htContextItems, ref Exception ex
+        ***************************************************************************/
+        public void UpdateScreenData_ErrHdlr(ref string sTabName, ref XmlNode nodeScreenInfo, ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : UpdateScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo =\"" + nodeScreenInfo.OuterXml + "\")", "ILBO0010", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void UpdateScreenData_ErrHdlr(ref string sTabName, ref XmlNode nodeScreenInfo, ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : UpdateScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo =\"" + nodeScreenInfo.OuterXml + "\")", "ILBO0010", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : Preprocess1_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function Preprocess1()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PreProcess1_Start(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess1()", "ILBO0011", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool PreProcess1_Start(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess1()", "ILBO0011", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : Preprocess1_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function Preprocess1()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PreProcess1_End(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess1()", "ILBO0011", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool PreProcess1_End(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess1()", "ILBO0011", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : Preprocess1_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at catch block of the function Preprocess1()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PreProcess1_ErrHdlr(ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess1()", "ILBO0011", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool PreProcess1_ErrHdlr(ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess1()", "ILBO0011", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : Preprocess2_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function Preprocess2()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PreProcess2_Start(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess2()", "ILBO0012", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool PreProcess2_Start(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess2()", "ILBO0012", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : Preprocess2_After_ExecuteService
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function Preprocess2()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PreProcess2_After_ExecuteService(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess1()", "ILBO0011", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool PreProcess2_After_ExecuteService(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess1()", "ILBO0011", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+
+        /**************************************************************************
+        Function Name   : Preprocess2_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function Preprocess2()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PreProcess2_End(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess2()", "ILBO0012", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool PreProcess2_End(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess2()", "ILBO0012", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : Preprocess2_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at catch block of the function Preprocess2()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PreProcess2_ErrHdlr(ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess2()", "ILBO0012", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool PreProcess2_ErrHdlr(ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess2()", "ILBO0012", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : Preprocess3_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function Preprocess3()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PreProcess3_Start(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess3()", "ILBO0013", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool PreProcess3_Start(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess3()", "ILBO0013", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : Preprocess3_After_ExecuteService
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function Preprocess3()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PreProcess3_After_ExecuteService(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess1()", "ILBO0011", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool PreProcess3_After_ExecuteService(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess1()", "ILBO0011", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : Preprocess3_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function Preprocess3()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PreProcess3_End(ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess3()", "ILBO0013", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool PreProcess3_End(ref Hashtable htContextItems)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess3()", "ILBO0013", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : Preprocess3_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at error block of the function Preprocess3()
+						The base method will not have any parameters
+						The wrapped method will have following parameters - ref Hashtable htContextItems
+        ***************************************************************************/
+        public bool PreProcess3_ErrHdlr(ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess3()", "ILBO0013", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public bool PreProcess3_ErrHdlr(ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : PreProcess3()", "ILBO0013", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+
+        /**************************************************************************
+        Function Name   : GetContextValue_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function GetContextValue_Start()
+						The base method will having following parameters - string sContextName
+						The wrapped method will have following parameters - ref string sContextName, ref Hashtable htContextItems
+        ***************************************************************************/
+        public object GetContextValue_Start(ref string sContextName, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetContextValue(sContextName = \"" + sContextName + "\")", "ILBO0014", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public object GetContextValue_Start(ref string sContextName, ref Hashtable htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetContextValue(sContextName = \"" + sContextName + "\")", "ILBO0014", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetContextValue_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function GetContextValue_Start()
+						The base method will having following parameters - string sContextName
+						The wrapped method will have following parameters - ref string sContextName, ref Hashtable htContextItems
+        ***************************************************************************/
+        public object GetContextValue_End(ref string sContextName, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetContextValue(sContextName = \"" + sContextName + "\")", "ILBO0014", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public object GetContextValue_End(ref string sContextName, ref Hashtable htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetContextValue(sContextName = \"" + sContextName + "\")", "ILBO0014", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetContextValue_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function GetContextValue_Start()
+						The base method will having following parameters - string sContextName
+						The wrapped method will have following parameters - ref string sContextName, ref Hashtable htContextItems, ref Exception ex
+        ***************************************************************************/
+        public object GetContextValue_ErrHdlr(ref string sContextName, ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetContextValue(sContextName = \"" + sContextName + "\")", "ILBO0014", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public object GetContextValue_ErrHdlr(ref string sContextName, ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetContextValue(sContextName = \"" + sContextName + "\")", "ILBO0014", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+
+        /**************************************************************************
+        Function Name   : SetContextValue_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function SetContextValue()
+						The base method will having following parameters - string sContextName,object sContextValue
+						The wrapped method will have following parameters - ref string sContextName, ref object sContextValue
+        ***************************************************************************/
+        public void SetContextValue_Start(ref string sContextName, ref object sContextValue, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetContextValue(sContextName = \"" + sContextName + "\", sContextValue = " + sContextValue + ")", "ILBO0015", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void SetContextValue_Start(ref string sContextName, ref object sContextValue, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetContextValue(sContextName = \"" + sContextName + "\", sContextValue = " + sContextValue + ")", "ILBO0015", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+
+        /**************************************************************************
+        Function Name   : SetContextValue_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function SetContextValue()
+						The base method will having following parameters - string sContextName,object sContextValue
+						The wrapped method will have following parameters - ref string sContextName, ref object sContextValue
+        ***************************************************************************/
+        public void SetContextValue_End(ref string sContextName, ref object sContextValue, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetContextValue(sContextName = \"" + sContextName + "\", sContextValue = " + sContextValue + ")", "ILBO0015", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void SetContextValue_End(ref string sContextName, ref object sContextValue, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetContextValue(sContextName = \"" + sContextName + "\", sContextValue = " + sContextValue + ")", "ILBO0015", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : SetContextValue_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at catch block of the function SetContextValue()
+						The base method will having following parameters - string sContextName,object sContextValue
+						The wrapped method will have following parameters - ref string sContextName, ref object sContextValue
+        ***************************************************************************/
+        public void SetContextValue_ErrHdlr(ref string sContextName, ref object sContextValue, ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetContextValue(sContextName = \"" + sContextName + "\", sContextValue = " + sContextValue + ")", "ILBO0015", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void SetContextValue_ErrHdlr(ref string sContextName, ref object sContextValue, ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : SetContextValue(sContextName = \"" + sContextName + "\", sContextValue = " + sContextValue + ")", "ILBO0015", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetScreenData_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function GetScreenData()
+						The base method will having following parameters - string sTabName,XmlNode nodeScreenInfo
+						The wrapped method will have following parameters - ref string sTabName,ref XmlNode nodeScreenInfo, ref Hashtable htContextItems
+        ***************************************************************************/
+        public void GetScreenData_Start(ref string sTabName, ref XmlNode nodeScreenInfo, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\")", "ILBO0016", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void GetScreenData_Start(ref string sTabName, ref XmlNode nodeScreenInfo, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\")", "ILBO0016", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetScreenData_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function GetScreenData()
+						The base method will having following parameters - string sTabName,XmlNode nodeScreenInfo
+						The wrapped method will have following parameters - ref string sTabName,ref XmlNode nodeScreenInfo, ref Hashtable htContextItems
+        ***************************************************************************/
+        public void GetScreenData_End(ref string sTabName, ref XmlNode nodeScreenInfo, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\")", "ILBO0016", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void GetScreenData_End(ref string sTabName, ref XmlNode nodeScreenInfo, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\")", "ILBO0016", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetScreenData_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at catch block of the function GetScreenData()
+						The base method will having following parameters - string sTabName,XmlNode nodeScreenInfo
+						The wrapped method will have following parameters - ref string sTabName,ref XmlNode nodeScreenInfo, ref Hashtable htContextItems
+        ***************************************************************************/
+        public void GetScreenData_ErrHdlr(ref string sTabName, ref XmlNode nodeScreenInfo, ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\")", "ILBO0016", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void GetScreenData_ErrHdlr(ref string sTabName, ref XmlNode nodeScreenInfo, ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetScreenData(sTabName = \"" + sTabName + "\", nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\")", "ILBO0016", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetTaskData_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function GetTaskData()
+						The base method will having following parameters - string sTabName, string sTaskName, XmlNode nodeScreenInfo
+						The wrapped method will have following parameters - ref string sTabName, ref string sTaskName, ref XmlNode nodeScreenInfo, ref Hashtable htContextItems
+        ***************************************************************************/
+        public void GetTaskData_Start(ref string sTabName, ref string sTaskName, ref XmlNode nodeScreenInfo)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetTaskData(sTabName = \"" + sTabName + "\", sTaskName = \"" + sTaskName + "\",  nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\" )", "ILBO0017", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetTaskData_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function GetTaskData()
+						The base method will having following parameters - string sTabName, string sTaskName, XmlNode nodeScreenInfo
+						The wrapped method will have following parameters - ref string sTabName, ref string sTaskName, ref XmlNode nodeScreenInfo, ref Hashtable htContextItems
+        ***************************************************************************/
+        public void GetTaskData_End(ref string sTabName, ref string sTaskName, ref XmlNode nodeScreenInfo)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetTaskData(sTabName = \"" + sTabName + "\", sTaskName = \"" + sTaskName + "\",  nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\" )", "ILBO0017", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetTaskData_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at catch block of the function GetTaskData()
+						The base method will having following parameters - string sTabName, string sTaskName, XmlNode nodeScreenInfo
+						The wrapped method will have following parameters - ref string sTabName, ref string sTaskName, ref XmlNode nodeScreenInfo, ref Hashtable htContextItems
+        ***************************************************************************/
+        public void GetTaskData_ErrHdlr(ref string sTabName, ref string sTaskName, ref XmlNode nodeScreenInfo, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetTaskData(sTabName = \"" + sTabName + "\", sTaskName = \"" + sTaskName + "\",  nodeScreenInfo = \"" + nodeScreenInfo.OuterXml + "\" )", "ILBO0017", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetDisplayURL_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function GetDisplayURL()
+						The base method will having following parameters - string sTabName
+						The wrapped method will have following parameters - ref string sTabName, ref Hashtable htContextItems
+        ***************************************************************************/
+        public string GetDisplayURL_Start(ref string sTabName)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDisplayURL(sTabName = \"" + sTabName + "\")", "ILBO0018", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetDisplayURL_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at end of the function GetDisplayURL()
+						The base method will having following parameters - string sTabName
+						The wrapped method will have following parameters - ref string sTabName, ref Hashtable htContextItems
+        ***************************************************************************/
+        public string GetDisplayURL_End(ref string sTabName)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDisplayURL(sTabName = \"" + sTabName + "\")", "ILBO0018", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetDisplayURL_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at catch block of the function GetDisplayURL()
+						The base method will having following parameters - string sTabName
+						The wrapped method will have following parameters - ref string sTabName, ref Hashtable htContextItems
+        ***************************************************************************/
+        public string GetDisplayURL_ErrHdlr(ref string sTabName, ref Exception ex)
+        {
+            try
+            {
+                return "";
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : GetDisplayURL(sTabName = \"" + sTabName + "\")", "ILBO0018", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : ExecuteService_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function ExecuteService()
+						The base method will having following parameters - string sServiceName
+						The wrapped method will have following parameters - ref string sServiceName
+        ***************************************************************************/
+        public bool ExecuteService_Start(ref string sServiceName)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : ExecuteService(sServiceName = \"" + sServiceName + "\")", "ILBO0019", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : ExecuteService_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at start of the function ExecuteService()
+						The base method will having following parameters - string sServiceName
+						The wrapped method will have following parameters - ref string sServiceName
+        ***************************************************************************/
+        public bool ExecuteService_End(ref string sServiceName)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : ExecuteService(sServiceName = \"" + sServiceName + "\")", "ILBO0019", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : ExecuteService_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll <#= sClassName #>.cs, at catch block of the function ExecuteService()
+						The base method will having following parameters - string sServiceName
+						The wrapped method will have following parameters - ref string sServiceName
+        ***************************************************************************/
+        public bool ExecuteService_ErrHdlr(ref string sServiceName, ref Exception ex)
+        {
+            try
+            {
+                return true;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("<#= sClassName #> : ExecuteService(sServiceName = \"" + sServiceName + "\")", "ILBO0019", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : FillMessageObject
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : Fills the Message object when an error occurs.
+        ***************************************************************************/
+        public void FillMessageObject(string sMethod, string sErrNumber, string sErrMessage)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "FillMessageObject(sMethod = \"" + sMethod + "\", sErrNumber =\"" + sErrNumber + "\", sErrMessage = \"" + sErrMessage + "\")", "<#= sClassName #> ");
+
+                //Get the Message Object from the session manager and add the error message to it.
+                ISessionManager ISManager = (ISessionManager)System.Web.HttpContext.Current.Session["SessionManager"];
+                IMessage Imsg = ISManager.GetMessageObject();
+                Imsg.AddMessage(sErrNumber, sErrMessage, sMethod, string.Empty, "5");
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceError, e.Message, "<#= sClassName #> : FillMessageObject(sMethod = \"" + sMethod + "\", sErrNumber = \"" + sErrNumber + "\",  sErrMessage = \"" + sErrMessage + "\")");
+            }
+        }
+
+        public bool BeginPerformTask_Start(AsyncCallback cb, VWRequestState reqState, ref Dictionary<string, object> htContextItems)
+        {
+            return true;
+        }
+
+        public bool BeginPerformTask_End(AsyncCallback cb, VWRequestState reqState, ref Dictionary<string, object> htContextItems)
+        {
+            return true;
+        }
+
+        public bool EndPerformTask_Start(IAsyncResult ar)
+        {
+            return true;
+        }
+
+        public bool EndPerformTask_End(IAsyncResult ar, ref Dictionary<string, object> htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker, ref bool bServiceResult)
+        {
+            return true;
+        }
+
+        public bool BeginPerformTask_After_Context(AsyncCallback cb, VWRequestState reqState, ref Dictionary<string, object> htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker)
+        {
+            return true;
+        }
+
+        public bool BeginPerformTask_Before_ExecuteService(AsyncCallback cb, VWRequestState reqState, ref Dictionary<string, object> htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker)
+        {
+            return true;
+        }
+
+        public bool EndPerformTask_After_ExecuteService(IAsyncResult ar, ref Dictionary<string, object> htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker, ref bool bServiceResult)
+        {
+            return true;
+        }
+
+        public bool EndPerformTask_ErrHdlr(IAsyncResult ar, ref Dictionary<string, object> htContextItems, ref Exception ex)
+        {
+            return true;
+        }
+
+        public bool EndPerformTask_After_Context(IAsyncResult ar, ref Dictionary<string, object> htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker)
+        {
+            return true;
+        }
+
+        public bool BeginPerformTask_ErrHdlr(AsyncCallback cb, VWRequestState reqState, ref Dictionary<string, object> htContextItems, ref Exception ex)
+        {
+            return true;
+        }
+
+        public bool BeginExecuteService_Start(AsyncCallback cb, VWRequestState reqState)
+        {
+            return true;
+        }
+
+        public bool EndExecuteService_End(ref IAsyncResult ar)
+        {
+            return true;
+        }
+
+        public bool BeginExecuteService_ErrHdlr(AsyncCallback cb, VWRequestState reqState, ref Exception ex)
+        {
+            return true;
+        }
+
+        public bool EndExecuteService_ErrHdlr(ref IAsyncResult ar, ref Exception ex)
+        {
+            return true;
+        }
+
+        public bool BeginPerformTask_After_ExecuteService(AsyncCallback cb, VWRequestState reqState, ref Dictionary<string, object> htContextItems, ref IContext ISMContext, ref ISessionManager ISManager, ref IMessage IMsg, ref IScreenObjectLauncher IHandler, ref IDataBroker IDBroker, ref bool bServiceResult)
+        {
+            return true;
+        }
+    }
+
+    #endregion
+}
+
+<#+
+	public string sNamespaceName { get;set; }
+	public string sClassName { get;set; }
+	public string sTargetDir { get;set; }
+	public ECRLevelOptions ecrOptions{get;set;}
+#>

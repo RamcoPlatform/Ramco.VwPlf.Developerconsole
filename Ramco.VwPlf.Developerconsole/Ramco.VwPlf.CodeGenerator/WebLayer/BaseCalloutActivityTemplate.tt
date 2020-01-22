@@ -1,0 +1,636 @@
+﻿<#@ template debug = "true" language="C#" #>
+<#@ output extension = ".cs" #>
+<#@ import namespace = "System.IO" #>
+<#@ import namespace = "System" #>
+/********************************************************************************************************
+* Copyright @2004, RAMCO SYSTEMS,  All rights reserved.													
+* Application/Module Name   :activity.cs
+* Code Generated on         :<#= DateTime.Now #>
+* Code Generated From       :<#= string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}",ecrOptions.Customer, ecrOptions.Project, ecrOptions.Ecrno, ecrOptions.Model, ecrOptions.User, ecrOptions.DB, ecrOptions.CodegenClient) #>
+* Revision/Version #        :
+* Purpose                   :Base callout activity cs
+* Modifications             :
+* Modifier Name & Date      :
+********************************************************************************************************/
+using System;
+using System.Web;
+using System.Xml;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Ramco.VW.RT.Web.Core;
+using System.Reflection;
+[assembly: AssemblyDescription("<#= ecrOptions.AssemblyDescription #>")]
+
+namespace <#= sNamespaceName #>
+{
+	#region activity Class
+	
+	public class activity
+	{
+		private Hashtable htContextItems = new Hashtable();
+
+        /**************************************************************************
+        Function Name	: GetILBOEx
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description		: 
+        ***************************************************************************/
+        public IILBO GetILBOEx(string sILBOCode, long lILBOIndex)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "GetILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Activity ");
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : DisposeILBOEx
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public void DisposeILBOEx(string sILBOCode, long lILBOIndex)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "DisposeILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Activity ");
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetILBO
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public IILBO GetILBO(string sILBOCode)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "GetILBO( sILBOCode = \"" + sILBOCode + "\")", "Activity ");
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : DisposeILBO
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public void DisposeILBO(string sILBOCode)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "DisposeILBO( sILBOCode = \"" + sILBOCode + "\")", "Activity ");
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetILBO_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, at the start of  method GetILBO
+                        The base method will have following parameters - string sILBOCode
+                        The wrapped method will have following parameters - ref string sILBOCode As string, ref Hashtable htContextItems
+        ***************************************************************************/
+        public IILBO GetILBO_Start(ref string sILBOCode, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetILBO_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : 
+        ***************************************************************************/
+        public IILBO GetILBO_Start(ref string sILBOCode, ref Hashtable htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : GetILBO_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, at the end of  method GetILBO
+                   The base method will have following parameters - string sILBOCode
+                   The wrapped method will have following parameters - ref string sILBOCode As string, ref Hashtable htContextItems
+
+        ***************************************************************************/
+        public IILBO GetILBO_End(ref string sILBOCode, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public IILBO GetILBO_End(ref string sILBOCode, ref Hashtable htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetILBO_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, in the catch block of GetILBO Method
+                        The base method will have following parameters - string sILBOCode
+                        The wrapped method will have following parameters - ref string sILBOCode As string, ref Hashtable htContextItems, ref Exception e
+
+        ***************************************************************************/
+
+        public IILBO GetILBO_ErrHdlr(ref string sILBOCode, ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public IILBO GetILBO_ErrHdlr(ref string sILBOCode, ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : DisposeILBO_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, at the start of the method DisposeILBO
+                   The base method will have following parameters - string sILBOCode
+                   The wrapped method will have following parameters - ref string sILBOCode As string, ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public void DisposeILBO_Start(ref string sILBOCode, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void DisposeILBO_Start(ref string sILBOCode, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : DisposeILBO_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, at the end of the method DisposeILBO
+						The base method will have following parameters - string sILBOCode
+						The wrapped method will have following parameters - ref string sILBOCode As string, ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public void DisposeILBO_End(ref string sILBOCode, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void DisposeILBO_End(ref string sILBOCode, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : DisposeILBO_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, at the catch of block of the method DisposeILBO
+						The base method will have following parameters - string sILBOCode
+						The wrapped method will have following parameters - ref string sILBOCode As string, ref Hashtable htContextItems, ref Exception e
+
+        ***************************************************************************/
+
+        public void DisposeILBO_ErrHdlr(ref string sILBOCode, ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void DisposeILBO_ErrHdlr(ref string sILBOCode, ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBO( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetILBOEx_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, at the start of the method GetILBOEx
+						The base method will have following parameters - string sILBOCode, long lILBOIndex
+						The wrapped method will have following parameters - ref string sILBOCode As string, ref long lILBOIndex, ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public IILBO GetILBOEx_Start(ref string sILBOCode, ref long lILBOIndex, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public IILBO GetILBOEx_Start(ref string sILBOCode, ref long lILBOIndex, ref Hashtable htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetILBOEx_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, at the end of the method GetILBOEx
+						The base method will have following parameters - string sILBOCode, long lILBOIndex
+						The wrapped method will have following parameters - ref string sILBOCode As string, ref long lILBOIndex, ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public IILBO GetILBOEx_End(ref string sILBOCode, ref long lILBOIndex, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public IILBO GetILBOEx_End(ref string sILBOCode, ref long lILBOIndex, ref Hashtable htContextItems)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : GetILBOEx_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, at the catch block of the method GetILBOEx
+						The base method will have following parameters - string sILBOCode, long lILBOIndex
+						The wrapped method will have following parameters - ref string sILBOCode As string, ref long lILBOIndex, ref Hashtable htContextItems
+
+        ***************************************************************************/
+
+        public IILBO GetILBOEx_ErrHdlr(ref string sILBOCode, ref long lILBOIndex, ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public IILBO GetILBOEx_ErrHdlr(ref string sILBOCode, ref long lILBOIndex, ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0001", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /**************************************************************************
+        Function Name   : DisposeILBOEx_Start
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, at the start of the method DisposeILBOEx
+						The base method will have following parameters - string sILBOCode, long lILBOIndex
+						The wrapped method will have following parameters - ref string sILBOCode As string, ref long lILBOIndex, ref Hashtable htContextItems
+        ***************************************************************************/
+
+        public void DisposeILBOEx_Start(ref string sILBOCode, ref long lILBOIndex, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void DisposeILBOEx_Start(ref string sILBOCode, ref long lILBOIndex, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : DisposeILBOEx_End
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, at the end of the method DisposeILBOEx
+						The base method will have following parameters - string sILBOCode, long lILBOIndex
+						The wrapped method will have following parameters - ref string sILBOCode As string, ref long lILBOIndex, ref Hashtable htContextItems
+        ***************************************************************************/
+
+        public void DisposeILBOEx_End(ref string sILBOCode, ref long lILBOIndex, ref Dictionary<string, Object> htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void DisposeILBOEx_End(ref string sILBOCode, ref long lILBOIndex, ref Hashtable htContextItems)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        /**************************************************************************
+        Function Name   : DisposeILBOEx_ErrHdlr
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : This function can be invoked from the activity dll TreeComplex.cs, at the catch block of the method DisposeILBOEx
+						The base method will have following parameters - string sILBOCode, long lILBOIndex
+						The wrapped method will have following parameters - ref string sILBOCode As string, ref long lILBOIndex, ref Hashtable htContextItems
+        ***************************************************************************/
+
+        public void DisposeILBOEx_ErrHdlr(ref string sILBOCode, ref long lILBOIndex, ref Dictionary<string, Object> htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+        public void DisposeILBOEx_ErrHdlr(ref string sILBOCode, ref long lILBOIndex, ref Hashtable htContextItems, ref Exception ex)
+        {
+            try
+            {
+
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : DisposeILBOEx( sILBOCode = \"" + sILBOCode + "\")", "Act0002", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /// <summary>
+        /// This method Gets the Context Value Information.
+        /// </summary>
+        /**************************************************************************
+        Function Name   : GetContextValue
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : Gets the Context Value Information.
+        ***************************************************************************/
+
+        public object GetContextValue(string sContextName)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "GetContextValue(sContextName = \"" + sContextName + "\")", "Activity ");
+                return htContextItems[sContextName];
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : GetContextValue(sContextName = \"" + sContextName + "\")", "Act0003", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /// <summary>
+        /// This method Sets the Context Value Information.
+        /// </summary>
+        /**************************************************************************
+        Function Name   : SetContextValue
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : Sets the Context Value Information.
+        ***************************************************************************/
+
+        public void SetContextValue(string sContextName, object sContextValue)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "SetContextValue(sContextName = \"" + sContextName + "\", sContextValue = " + sContextValue + ")", "activity  ");
+                htContextItems[sContextName] = sContextValue;
+            }
+            catch (Exception e)
+            {
+                FillMessageObject("activity : SetContextValue(sContextName = \"" + sContextName + "\", sContextValue = " + sContextValue + ")", "Act0004", e.Message);
+                throw new Exception(e.Message, e);
+            }
+        }
+
+
+        /// <summary>
+        /// This method Fills the Message object when an error occurs.
+        /// </summary>
+        /**************************************************************************
+        Function Name   : FillMessageObject
+        Author			: 
+        Date			: <#= DateTime.Now.ToShortDateString() #>
+        Description     : Fills the Message object when an error occurs.
+        ***************************************************************************/
+
+        private void FillMessageObject(string sMethod, string sErrNumber, string sErrMessage)
+        {
+            try
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceInfo, "FillMessageObject(sMethod = \"" + sMethod + "\", sErrNumber =\"" + sErrNumber + "\", sErrMessage = \"" + sErrMessage + "\")", "activity  ");
+
+                //Get the Message Object from the session manager and add the error message to it.
+                ISessionManager ISManager = (ISessionManager)System.Web.HttpContext.Current.Session["SessionManager"];
+                IMessage Imsg = ISManager.GetMessageObject();
+                Imsg.AddMessage(sErrNumber, sErrMessage, sMethod, string.Empty, "5");
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLineIf(SessionManager.m_ILActTraceSwitch.TraceError, e.Message, "activity : FillMessageObject(sMethod = \"" + sMethod + "\", sErrNumber = \"" + sErrNumber + "\",  sErrMessage = \"" + sErrMessage + "\")");
+            }
+        }
+
+	}
+	
+	#endregion
+}
+
+<#+
+	public string sNamespaceName {get;set;}
+	public string sTargetDir {get;set;}
+	public ECRLevelOptions ecrOptions{get;set;}
+#>

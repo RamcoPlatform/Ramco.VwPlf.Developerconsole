@@ -1,0 +1,129 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+/********************************************************************************************************
+* Copyright @2004, RAMCO SYSTEMS,  All rights reserved.													
+* Application/Module Name   :<#= ecrOptions.Component.ToLower() #>_cr.cs
+* Code Generated on         :<#= DateTime.Now #>
+* Code Generated From       :<#= string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}",ecrOptions.Customer, ecrOptions.Project, ecrOptions.Ecrno, ecrOptions.Model, ecrOptions.User, ecrOptions.DB, ecrOptions.CodegenClient) #>
+* Revision/Version #        :
+* Purpose                   :
+* Modifications             :
+* Modifier Name & Date      :
+********************************************************************************************************/
+using System;
+using System.Diagnostics;
+using System.Reflection;
+using System.EnterpriseServices;
+using com.ramco.vw.<#= ecrOptions.Component.ToLower() #>.trans;
+using com.ramco.vw.tp.CRUtil;
+
+[assembly: AssemblyDescription("<#= ecrOptions.Customer #>/<#= ecrOptions.Project #>/<#= ecrOptions.Ecrno #>/<#= ecrOptions.Model.Replace('\\','-') #>/<#= ecrOptions.User #>/<#= ecrOptions.DB #>/<#= ecrOptions.CodegenClient #>/<#= DateTime.Now.ToShortDateString() #>")]
+[assembly:ApplicationActivation(ActivationOption.Server)]
+
+[assembly:ApplicationAccessControlAttribute(false,AccessChecksLevel=AccessChecksLevelOption.ApplicationComponent)]
+ 
+namespace com.ramco.vw.<#= ecrOptions.Component.ToLower() #>.cr
+{
+    [Transaction(TransactionOption.Supported, Isolation = TransactionIsolationLevel.ReadCommitted)]
+    [EventTrackingEnabled(true)]
+
+    public class C<#= ecrOptions.Component.ToLower() #>_cr : ServicedComponent
+    {
+        public const int ATMA_SUCCESS = 0;
+        public const int ATMA_FAILURE = 999;
+        public const int ATMA_INVALID_SERVICE = 998;
+        DefaultTraceListener output = new DefaultTraceListener();
+
+        public int ProcessDocument(string szInMtd, string szServiceName, string szSessionToken, ref string szOutMtd)
+        {
+            try
+            {
+                szOutMtd = "";
+                switch (szServiceName.ToLower().Trim())
+                {
+					<# foreach(Service service in this.services)
+					{
+						ServiceType serviceType = (ServiceType)Enum.Parse(typeof(ServiceType), service.Type);
+						string FetchOrUpdate = serviceType.Equals(ServiceType.Fetch) ? "0" : "1";
+					#>case ("<#= service.Name.ToLower() #>"):
+                        using (C<#= ecrOptions.Component.ToLower() #><#= FetchOrUpdate #> <#= ecrOptions.Component.ToLower() #><#= FetchOrUpdate #> = new C<#= ecrOptions.Component.ToLower() #><#= FetchOrUpdate #>())
+                        {
+                            if (<#= ecrOptions.Component.ToLower() #><#= FetchOrUpdate #>.ProcessDocument(szInMtd, szServiceName, szSessionToken, out szOutMtd) == 0)
+                            {
+                                output.WriteLine("<#= ecrOptions.Component.ToUpper() #>.C<#= ecrOptions.Component.ToLower() #>_cr.ProcessDocument - <#= service.Name.ToLower() #> service executed successfully.");
+                                return ATMA_SUCCESS;
+                            }
+                            else
+                            {
+                                output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_cr.ProcessDocument - <#= service.Name.ToLower() #> service executed with a failure.");
+                                return ATMA_FAILURE;
+                            }
+                        }
+					<#
+					}
+					#>default:
+                        int iType = -1;
+                        string szPSXmlPath = string.Empty;
+                        CRUtil.PassiveServiceCheck(szServiceName, ref iType, ref szPSXmlPath);
+                        switch (iType)
+                        {
+                            case 0:
+                                using (C<#= ecrOptions.Component.ToLower() #>0 <#= ecrOptions.Component.ToLower() #>0 = new C<#= ecrOptions.Component.ToLower() #>0())
+                                {
+                                    if (<#= ecrOptions.Component.ToLower() #>0.PassiveProcessDocument(szInMtd, szPSXmlPath, szSessionToken, out szOutMtd) == 0)
+                                    {
+                                        output.WriteLine("<#= ecrOptions.Component.ToLower() #>.C<#= ecrOptions.Component.ToLower() #>_cr.PassiveProcessDocument - " + szServiceName + " service executed successfully.");
+                                        return ATMA_SUCCESS;
+                                    }
+                                    else
+                                    {
+                                        output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_cr.PassiveProcessDocument - " + szServiceName + " service executed with a failure.");
+                                        return ATMA_FAILURE;
+                                    }
+                                }
+                            case 1:
+                                using (C<#= ecrOptions.Component.ToLower() #>1 <#= ecrOptions.Component.ToLower() #>1 = new C<#= ecrOptions.Component.ToLower() #>1())
+                                {
+                                    if (<#= ecrOptions.Component.ToLower() #>1.PassiveProcessDocument(szInMtd, szPSXmlPath, szSessionToken, out szOutMtd) == 0)
+                                    {
+                                        output.WriteLine("<#= ecrOptions.Component.ToLower() #>.C<#= ecrOptions.Component.ToLower() #>_cr.ProcessDocument - " + szServiceName + " service executed successfully.");
+                                        return ATMA_SUCCESS;
+                                    }
+                                    else
+                                    {
+                                        output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_cr.PassiveProcessDocument - " + szServiceName + " service executed with a failure.");
+                                        return ATMA_FAILURE;
+                                    }
+                                }
+                            default:
+                                output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_cr.ProcessDocument - Service referred Is Not part of the runtime component-" + szServiceName);
+                                return ATMA_INVALID_SERVICE;
+                        }
+                }
+            }
+            catch (Exception e)
+            {
+                output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_cr.ProcessDocument - General Exception :");
+                output.WriteLine(e.Message);
+                szOutMtd = "";
+                return ATMA_FAILURE;
+            }
+            finally
+            {
+                base.Dispose(true);
+            }
+        }
+
+        public C<#= ecrOptions.Component.ToLower() #>_cr()
+        {
+        }
+    }
+}
+<#+
+private System.Collections.Generic.List<Service> services;
+public ECRLevelOptions ecrOptions{get;set;}
+public Template_cr(System.Collections.Generic.List<Service> _services)
+{
+	this.services = _services;
+}
+#>

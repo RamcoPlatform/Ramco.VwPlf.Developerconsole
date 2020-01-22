@@ -1,0 +1,261 @@
+﻿<#@ template language="C#" #>
+<#@ import namespace = "System.Data" #>
+<#@ import namespace = "System.Linq" #>
+<#@ import namespace = "System.Collections.Generic" #>
+/********************************************************************************************************
+* Copyright @2004, RAMCO SYSTEMS,  All rights reserved.
+* Application/Module Name   :<#= sComponentName #>_ErrHdlr.cs
+* Code Generated on         :<#= DateTime.Now #>
+* Code Generated From       :<#= string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}",ecrOptions.Customer, ecrOptions.Project, ecrOptions.Ecrno, ecrOptions.Model, ecrOptions.User, ecrOptions.DB, ecrOptions.CodegenClient) #>
+* Revision/Version #        :
+* Purpose                   :Error Handler.
+* Modifications             :																														
+* Modifier Name & Date      :
+********************************************************************************************************/
+using System;
+using System.Reflection;
+using System.Collections;
+using System.Resources;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
+using System.Globalization;
+using com.ramco.vw.tp; //Clocalizer
+[assembly:AssemblyVersion("1.4.3.12")]
+namespace com.ramco.vw.<#= sComponentName.ToLower() #>.ehs
+{
+	public class CErrorHandler
+	{
+		Hashtable TempPHData;
+		string[] szErDelimeter = {"$::$"};
+		string[] szPhDelimeter = {"#::#"};
+		static Regex reBrPlaceHolder;
+		static Regex rePlPlaceHolder;
+		
+		string BRError="";
+		string PSError="";
+		string SPError="";
+		string MError="";
+		string SerError="";
+		string szComponentName="<#= sComponentName #>";
+		static Clocalizer ehsLoc = null;
+		string culture;
+		DefaultTraceListener outDBString;
+
+		public CErrorHandler(int langid)
+		{
+			if(ehsLoc == null)
+			{
+				string szSatAsm;
+				Assembly exAsm = Assembly.GetExecutingAssembly();
+				string szVersion="2.0.3.2";
+				string szPublicKeyToken="3a721247b727f8b9";
+				try
+				{
+					szVersion = exAsm.GetName().Version.ToString();
+					byte[] pkt = exAsm.GetName().GetPublicKeyToken();
+					szPublicKeyToken = string.Format("{0:x2}{1:x2}{2:x2}{3:x2}{4:x2}{5:x2}{6:x2}{7:x2}", pkt[0], pkt[1], pkt[2], pkt[3], pkt[4], pkt[5], pkt[6], pkt[7]);
+					pkt=null;
+				}
+				catch(Exception ex)
+				{
+					szVersion="2.0.3.2";
+					szPublicKeyToken="3a721247b727f8b9";
+				}
+				
+				try
+				{
+					szSatAsm = string.Format("{0}.Resources, Version={1}, Culture = Neutral, PublicKeyToken={2}", szComponentName, szVersion, szPublicKeyToken);
+					Assembly satasm = Assembly.Load(szSatAsm);
+					ehsLoc = new Clocalizer(satasm);
+				}
+				catch(Exception ex)
+				{
+					throw new Exception ( string.Format("Problem While Loading Satellite Assembly for the Component - {0} Exception : {1}",szComponentName, ex.Message));
+				}
+			}
+			if (reBrPlaceHolder == null)
+			reBrPlaceHolder = new Regex(@"\<.*?(\:|\>)");
+			if (rePlPlaceHolder == null)
+			rePlPlaceHolder = new Regex(@"\^.*?(\:|\!)");
+
+			culture = "ehs." + langid.ToString();
+		}
+
+		public string GetResourceInfo(string key)
+		{
+			return CErrorHandler.ehsLoc.GetResourceInfo(key,culture);
+		}
+
+		public bool getErrorMessage(string szServiceName, string szPHSeqNo, long lMethodID,long lSPErrorID,long lLoopInst,long PSSeqNo ,long BRSeqNo,ref long lBRErrorID,ref string szErrorMsg,ref string szCorrectiveMsg,ref long lSererity,ref string szFocusSegName,ref string szFocusDI,ref Hashtable PHData)
+		{
+			string[] szTemp; // Used for Spliting string Variable with Error Delimeter
+		
+			try
+			{
+				szErrorMsg = CErrorHandler.ehsLoc.GetResourceInfo(string.Format("m{0}e{1}",lMethodID.ToString().Trim(), lSPErrorID.ToString().Trim()), culture);
+				szCorrectiveMsg = CErrorHandler.ehsLoc.GetResourceInfo(string.Format("m{0}c{1}",lMethodID.ToString().Trim(), lSPErrorID.ToString().Trim()), culture);
+				szTemp = szCorrectiveMsg.Split(szErDelimeter ,StringSplitOptions.None);
+		
+				if(szTemp.Length > 2)
+				{
+					szCorrectiveMsg = szTemp[0];
+					long.TryParse(szTemp[1], out lBRErrorID);
+					long.TryParse(szTemp[2], out lSererity);
+					if(szTemp.Length > 3)
+					{
+						szFocusSegName   = szTemp[3];
+						if(szTemp.Length > 4)
+							szFocusDI    = szTemp[4];
+					}
+				}
+				else
+				{
+					throw new Exception ("Error Key Missing");
+				}
+			}
+			catch(Exception ex)
+			{
+				SPError = CErrorHandler.ehsLoc.GetResourceInfo("sperror",culture);
+				throw new Exception (string.Format(SPError,lSPErrorID.ToString(),lMethodID.ToString(),szServiceName));
+			}
+		
+			try
+			{
+				MatchCollection mcPHCollection = reBrPlaceHolder.Matches(szErrorMsg);
+		
+				if (mcPHCollection.Count > 0)
+				{
+					string szPHKey;
+					string szTempPHInfo;
+					string[] szPHInfo;
+		
+					int iPHCount=1;
+					string sbPHKey = string.Format("i{0}m{1}ps{2}b{3}s{4}",lSPErrorID.ToString(), lMethodID.ToString(), PSSeqNo.ToString(), BRSeqNo.ToString(), szServiceName);
+		
+					szTempPHInfo = CErrorHandler.ehsLoc.GetResourceInfo(sbPHKey.ToString(), "ehs.phinfo" + szPHSeqNo.Trim());
+					foreach (Match mPHName in mcPHCollection)
+					{
+						szPHKey = mPHName.Value;
+						szPHKey = szPHKey.Substring(1,szPHKey.Length-2);
+						szTemp = null;
+		
+						szPHInfo = szTempPHInfo.Split(szPhDelimeter,StringSplitOptions.None);
+						for(int j=0;j<=szPHInfo.Length-1;j++)
+						{
+							szTemp = szPHInfo[j].Split(szErDelimeter,StringSplitOptions.None);
+							if( szTemp.Length> 2)
+							{
+								if (szTemp[0].ToLower() == szPHKey.ToLower()) // Place Holder order Must Match with the information given in the phinfo                                                                                           
+								break;
+								else
+									szTemp = null;
+							}
+						}
+		
+						if( szTemp == null)
+						{
+							outDBString = new DefaultTraceListener();
+							outDBString.WriteLine("Place Holder Name From MatchCollection   :" + szPHKey);
+							outDBString.WriteLine("Place Holder Name From PHInfo Collection :" + szTemp[0]);
+							outDBString.WriteLine("Place Holder Index           :" + iPHCount.ToString());
+							outDBString =null;
+							sbPHKey = null;
+							szTemp = null;
+							szPHInfo=null;
+							mcPHCollection = null;
+							throw new Exception ("Place Holder info missing");
+						}
+		
+						TempPHData=new Hashtable();
+						TempPHData["PlaceHolder"]= szTemp[0];
+						TempPHData["SegName"] = szTemp[1];
+						TempPHData["DIName"] = szTemp[2];
+						if(szTemp.Length > 3)
+						TempPHData["DIValue"] = szTemp[3];
+						TempPHData["InstanceNo"]=lLoopInst;
+						PHData[iPHCount]=TempPHData;
+						TempPHData=null;
+						iPHCount++;
+					}
+		
+					sbPHKey = null;
+					szTemp = null;
+					szPHInfo=null;
+					mcPHCollection = null;
+				}
+			}
+			catch(Exception ex)
+			{
+				BRError = CErrorHandler.ehsLoc.GetResourceInfo("brerror",culture);
+				throw new Exception(string.Format(BRError,BRSeqNo.ToString(),PSSeqNo.ToString(),lSPErrorID.ToString(),lMethodID.ToString(),szServiceName));
+			}
+		return true;
+		}
+		<#foreach(string servicename in ServiceWithoutError)
+		{#>				
+		public bool EHS<#=servicename.ToLower() #>(long lMethodID,long lSPErrorID,long lLoopInst,long PSSeqNo ,long BRSeqNo,ref long lBRErrorID,ref string szErrorMsg,ref string szCorrectiveMsg,ref long lSererity,ref string szFocusSegName,ref string szFocusDI,ref Hashtable PHData)
+		{
+			SerError = CErrorHandler.ehsLoc.GetResourceInfo("sererror",culture);
+			throw new Exception(String.Format(SerError, "<#= servicename #>"));
+		}
+		<#}#>
+		<#foreach(string servicename in ServiceWithError)
+		{#>				
+		public bool EHS<#=servicename.ToLower() #>(long lMethodID,long lSPErrorID,long lLoopInst,long PSSeqNo ,long BRSeqNo,ref long lBRErrorID,ref string szErrorMsg,ref string szCorrectiveMsg,ref long lSererity,ref string szFocusSegName,ref string szFocusDI,ref Hashtable PHData)
+		{
+			bool bRetVal;
+			bRetVal = getErrorMessage("<#=servicename.ToLower() #>", "1" , lMethodID, lSPErrorID, lLoopInst, PSSeqNo , BRSeqNo,ref lBRErrorID,ref szErrorMsg,ref szCorrectiveMsg,ref lSererity,ref szFocusSegName,ref szFocusDI,ref PHData);
+			return bRetVal;
+		}
+		<#}#>
+
+		public bool ReplaceErrMsg(Hashtable PlaceHolder,ref string szErrormsg)
+		{
+			string szTemp=szErrormsg;
+			try
+			{
+				for (int i=1;i<=PlaceHolder.Count;i++)
+				{
+					TempPHData=null;
+					TempPHData=(Hashtable) PlaceHolder[i];
+					if(TempPHData["DIValue"] != null)
+					{
+						szTemp=szTemp.Replace(("<" + TempPHData["PlaceHolder"].ToString().ToLower() + ">"),TempPHData["DIValue"].ToString());
+					}
+					else
+					{
+						szTemp=szTemp.Replace(("<" + TempPHData["PlaceHolder"].ToString().ToLower() + ">")," ");
+					}
+				}
+			}
+			catch(Exception e)
+			{
+				throw new Exception(e.Message);
+			}
+			szErrormsg=szTemp;
+			return true;
+		}
+
+		private bool GetErrorInfoInternal(long errorId, ref string errorMsg, ref string correctiveAction, params object [] reservedParams )
+		{
+			try
+			{
+				errorMsg = CErrorHandler.ehsLoc.GetResourceInfo("e" + errorId.ToString(), culture);
+				correctiveAction = CErrorHandler.ehsLoc.GetResourceInfo("c" + errorId.ToString(), culture);
+				return true;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+		}
+	}	
+}
+
+<#+
+	public string sComponentName{get;set;}
+	public IEnumerable<string> ServiceWithError = null;
+    public IEnumerable<string> ServiceWithoutError = null;
+	public ECRLevelOptions ecrOptions{get;set;}
+#>

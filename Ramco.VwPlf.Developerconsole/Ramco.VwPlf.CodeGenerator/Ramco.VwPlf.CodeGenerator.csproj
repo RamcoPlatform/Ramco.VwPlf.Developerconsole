@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{024B208A-D59A-4654-9DEF-CBA7D441B569}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ramco.VwPlf.CodeGenerator</RootNamespace>
+    <AssemblyName>Ramco.VwPlf.CodeGenerator</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CUtil, Version=1.4.3.12, Culture=neutral, PublicKeyToken=3a721247b727f8b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\CUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceGenerator20">
+      <HintPath>..\Reference\DeviceGenerator20.exe</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>..\Reference\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Preview20">
+      <HintPath>..\Reference\Interop.Preview20.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.RVWRepAspxGen">
+      <HintPath>..\Reference\Interop.RVWRepAspxGen.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Build">
+      <HintPath>..\Reference\Microsoft.Build.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Build.Engine">
+      <HintPath>..\Reference\Microsoft.Build.Engine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework">
+      <HintPath>..\Reference\Microsoft.Build.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Build.Tasks.Core, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\Microsoft.Build.Tasks.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Build.Utilities.Core, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\Microsoft.Build.Utilities.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=1.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.1.3.2\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=1.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.1.3.2\lib\net45\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces, Version=1.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.Workspaces.1.3.2\lib\net45\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces, Version=1.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Workspaces.Common.1.3.2\lib\net45\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces.Desktop">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Workspaces.Common.1.3.2\lib\net45\Microsoft.CodeAnalysis.Workspaces.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Reference\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plf.Itk.Ramco.Callout, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3a721247b727f8b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\Plf.Itk.Ramco.Callout.dll</HintPath>
+    </Reference>
+    <Reference Include="Plf.Itk.Ramco.Logicalextension, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3a721247b727f8b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\Plf.Itk.Ramco.Logicalextension.dll</HintPath>
+    </Reference>
+    <Reference Include="Plf.Ramco.AppCallout.Interface, Version=0.0.0.0, Culture=neutral, PublicKeyToken=3a721247b727f8b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\Plf.Ramco.AppCallout.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="Plf.Ramco.Instrumentation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3a721247b727f8b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\Plf.Ramco.Instrumentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Plf.Ramco.WebCallout.Interface">
+      <HintPath>..\Reference\Plf.Ramco.WebCallout.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="Plf.Ui.Ramco.Utility">
+      <HintPath>..\Reference\Plf.Ui.Ramco.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="Ramco.Glance.UiGenerator">
+      <HintPath>..\Reference\Ramco.Glance.UiGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="Ramco.mHub.MobileLayoutGenerator">
+      <HintPath>..\Reference\Ramco.mHub.MobileLayoutGenerator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ramco.Plf.Global.Interfaces">
+      <HintPath>..\Reference\Ramco.Plf.Global.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ramco.Plf.Layout.Generator">
+      <HintPath>..\Reference\Ramco.Plf.Layout.Generator.dll</HintPath>
+    </Reference>
+    <Reference Include="Ramco.Plf.MobileLayoutGenerator20">
+      <HintPath>..\Reference\Ramco.Plf.MobileLayoutGenerator20.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ramco.Plf.UiGenerator">
+      <HintPath>..\Reference\Ramco.Plf.UiGenerator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ramco.Plf.XamlGenerator">
+      <HintPath>..\Reference\Ramco.Plf.XamlGenerator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ramco.VW.PLF.MDCFGenerator">
+      <HintPath>..\Reference\Ramco.VW.PLF.MDCFGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="Ramco.Xam.MobileLayoutGenerator">
+      <HintPath>..\Reference\Ramco.Xam.MobileLayoutGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.1.37.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.1.37\lib\dotnet\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Composition.AttributedModel">
+      <HintPath>..\Reference\System.Composition.AttributedModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Hosting">
+      <HintPath>..\Reference\System.Composition.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Runtime">
+      <HintPath>..\Reference\System.Composition.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.TypedParts">
+      <HintPath>..\Reference\System.Composition.TypedParts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.2.0\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="VirtualWorksRT, Version=1.4.3.12, Culture=neutral, PublicKeyToken=3a721247b727f8b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\VirtualWorksRT.dll</HintPath>
+    </Reference>
+    <Reference Include="VWHelper, Version=1.4.3.12, Culture=neutral, PublicKeyToken=3a721247b727f8b9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\VWHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppLayer\ErrHandlerTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrHandlerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppLayer\BROGenerator.cs" />
+    <Compile Include="AppLayer\GenerateIS.cs" />
+    <Compile Include="AppLayer\ISDumpTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ISDumpTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppLayer\Template0.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Template0.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppLayer\Template1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Template1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppLayer\Template_cr.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Template_cr.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppLayer\Template_ltm.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Template_ltm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppLayer\Template_ltmcr.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Template_ltmcr.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppLayer\Template_rb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Template_rb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppLayer\UPBRTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UPBRTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeserializingSchema.cs" />
+    <Compile Include="CodegenWrapper.cs" />
+    <Compile Include="AbstractCSFileGenerator.cs" />
+    <Compile Include="EncryptionHelper.cs" />
+    <Compile Include="ScriptGenerator.cs" />
+    <Compile Include="OptionXml.cs" />
+    <Compile Include="ThirdPartyGenerator.cs" />
+    <Compile Include="WebLayer\BaseCalloutActivityTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseCalloutActivityTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WebLayer\BaseCalloutILBOTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseCalloutILBOTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="DataPrepartion.cs" />
+    <Compile Include="GenerateCode.cs" />
+    <Compile Include="Metadata.cs" />
+    <Compile Include="CodeUnit.cs" />
+    <Compile Include="WebLayer\GenerateActivityClass.cs" />
+    <Compile Include="WebLayer\GenerateChartClass.cs" />
+    <Compile Include="WebLayer\GenerateILBOClass.cs" />
+    <Compile Include="GlobalVar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AppLayer\GenerateServiceClass.cs" />
+    <Compile Include="WebLayer\GenerateTreeClass.cs" />
+    <Compile Include="XmlGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppLayer\ErrHandlerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ErrHandlerTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppLayer\ISDumpTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ISDumpTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppLayer\Template0.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Template0.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppLayer\Template1.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Template1.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppLayer\Template_cr.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Template_cr.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppLayer\Template_ltm.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Template_ltm.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppLayer\Template_ltmcr.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Template_ltmcr.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppLayer\Template_rb.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>Template_rb.cs</LastGenOutput>
+    </Content>
+    <Content Include="AppLayer\UPBRTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>UPBRTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="ReadMe.txt" />
+    <Content Include="WebLayer\BaseCalloutActivityTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BaseCalloutActivityTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="WebLayer\BaseCalloutILBOTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BaseCalloutILBOTemplate.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Workspaces.Common.1.3.2\lib\net45\Microsoft.CodeAnalysis.Workspaces.Desktop.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ramco.VwPlf.CodeGenerator.Callout\Ramco.VwPlf.CodeGenerator.Callout.csproj">
+      <Project>{8e0bdfba-bc16-4c06-98b0-d2db6a1c7d5b}</Project>
+      <Name>Ramco.VwPlf.CodeGenerator.Callout</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ramco.VwPlf.DataAccess\Ramco.VwPlf.DataAccess.csproj">
+      <Project>{664564fa-7af5-4ae0-9f29-1ce40f20e644}</Project>
+      <Name>Ramco.VwPlf.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ramco.VwPlf.Generator\Ramco.VwPlf.Generator.csproj">
+      <Project>{bd55bf59-b9c3-48f6-9712-788c04e38aae}</Project>
+      <Name>Ramco.VwPlf.Generator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ramco.VwPlf.VwState.Generator\Ramco.VwPlf.VwState.Generator.csproj">
+      <Project>{b4388468-05f6-4baa-b47a-0049c001a8f0}</Project>
+      <Name>Ramco.VwPlf.VwState.Generator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="InsertMasterData.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

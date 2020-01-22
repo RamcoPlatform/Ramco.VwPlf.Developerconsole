@@ -1,0 +1,151 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".cs" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Collections.Specialized;
+using com.ramco.vw.tp;
+using System.Xml;
+
+namespace com.ramco.vw.C<#= this.ServiceName #>.ml.br
+{
+    public class C<#= this.ServiceName #>_ml_br:CUtil
+    {
+        public NameValueCollection ProcessUniversalPersonalization(Dictionary<string,object> personalizationInput)
+        {
+
+            NameValueCollection nvc_InputSegment = personalizationInput["inputsegment"] as NameValueCollection;
+            NameValueCollection nvc_OutputSegment = personalizationInput["outputsegment"] as NameValueCollection;
+
+            nvcFW_CONTEXT = personalizationInput["contextparameter"] as NameValueCollection;
+            string szErrorDesc =string.Empty, szErrSrc=string.Empty;
+            string szSessionToken = personalizationInput["sessiontoken"] as string;
+            long lSPErrorID=0;
+            string sValue = string.Empty;
+            try
+            {
+                //********Starting to execute ProcessUniversalPersonalization ****************
+
+                Service_Pre_Process("", szSessionToken, ref szComponentName, ref szServiceName, ref szLangID, ref szCompInst, ref szOUI, ref szSecToken, ref szUser, ref szConnectionString, ref szTxnID, ref szRole);
+
+                try
+                {
+                    CreateCommand();
+                    try
+                    {					
+                        Parameters("@ctxt_OUInstance", DBType.NVarchar, 4, szOUI);
+                        Parameters("@ctxt_User", DBType.NVarchar, 30, szUser);
+                        Parameters("@ctxt_Language", DBType.Int, 32, szLangID);
+                        Parameters("@ctxt_Service", DBType.NVarchar, 32, szServiceName);
+                        Parameters("@CTxt_Role", DBType.NVarchar, 30, szRole);
+						<#
+						foreach(Parameter p in ps.Methods.First().Parameters.Where(param=>string.Compare("fw_context",param.Seg.Name,true)!=0 && (param.FlowDirection == "0" || param.FlowDirection == "2")))
+						{
+							string sDBType = string.Empty;
+							switch(p.CategorizedDataType.ToUpper())
+							{
+								case "INT":
+									sDBType = "Int";
+								break;
+								case "STRING":
+									sDBType = "NVarchar";
+								break;
+								case "DOUBLE":
+									sDBType = "Numeric";
+								break;
+								default:
+								break;
+							}
+							WriteLine(CurrentIndent + string.Format("sValue = nvc_InputSegment[\"{0}\"];",p.DI.Name));
+							WriteLine(CurrentIndent + string.Format("Parameters(\"@{0}\",DBType.{1},{2},sValue);",p.Name,sDBType,p.Length));
+						}
+						#>
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception("General Exception during IN Parameter Binding of ProcessUniversalPersonalization - " + e.Message);
+                    }
+                    WriteProfiler("Executing-- <#= ps.Methods.First().SPName #> sp");
+                    Execute_SP(true, "<#= ps.Methods.First().SPName #>", ref szErrorDesc, ref lSPErrorID, ref szErrSrc, SP_ERR_PROTOCOL_OUTPARAM);
+
+                    //To handle stop error type / Raise errors
+                    if (lSPErrorID != 0)
+                    {
+                        throw new Exception(szErrorDesc);
+                    }
+
+
+                    try
+                    {
+                        if (IsDataReader_Accessible() && Read())
+                        {
+						<#
+							foreach(Parameter p in ps.Methods.First().Parameters.Where(param=>string.Compare("fw_context",param.Seg.Name,true)!=0 && (param.FlowDirection == "1" || param.FlowDirection == "2")))
+							{
+								WriteLine(CurrentIndent + string.Format("sValue = GetValue(\"{0}\");",p.Name));
+								WriteLine(CurrentIndent + string.Format("nvc_OutputSegment[\"{0}\"] = sValue;",p.Name));
+							}
+						#>
+						}
+                    }
+                    catch (Exception e)
+                    {
+                        <#
+						WriteLine(CurrentIndent + string.Format("throw new Exception(\"General Exception during OUT Data Binding of ProcessUniversalPersonalization - {0} BR - {1}\" + e.Message);",ps.SeqNO,ps.Methods.First().SeqNO));
+						#>
+                    }
+
+
+                    //To handle continue error type / Non-Raise errors
+                    if (lSPErrorID == 0)
+                    {
+                        if (GetCommandOutParam(ref lSPErrorID, SP_ERR_PROTOCOL_OUTPARAM))
+                        {
+                            if (lSPErrorID != 0)
+                            {
+								<#
+                                WriteLine(CurrentIndent + string.Format("Process_MethodError_Info(\"\", APP_ERROR, lSPErrorID, 1, {0}, {1}, {2});",ps.Methods.First().ID,ps.SeqNO,ps.Methods.First().SeqNO));
+								#>
+                            }
+                        }
+                    }
+                }
+                catch (CRVWException rvwe)
+                {
+                    throw rvwe;
+                }
+                catch (Exception e)
+                {
+					<#
+                    WriteLine(CurrentIndent +  string.Format("throw new Exception(\"General Exception at ProcessUniversalPersonalization - {0} BR - {1}\" + e.Message);",ps.SeqNO,ps.Methods.First().SeqNO));
+					#>
+                }
+                finally
+                {
+                    CloseCommand();
+                    Close();
+                }
+            }
+            catch (CRVWException rvwe)
+            {
+                throw rvwe;
+            }
+            catch (Exception e)
+            {
+                <#
+				WriteLine(CurrentIndent + string.Format("throw new Exception(\"ProcessUniversalPersonalization - {0}\" + e.Message);",ps.SeqNO));
+				#>
+            }
+            return nvc_OutputSegment;
+        }
+        
+    }
+}
+<#+
+public string ComponentName	{get;set;}
+public string ServiceName	{get;set;}
+public ProcessSection ps	{get;set;}
+#>

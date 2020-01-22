@@ -1,0 +1,83 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+/********************************************************************************************************
+* Copyright @2004, RAMCO SYSTEMS,  All rights reserved.													
+* Application/Module Name   :<#= ecrOptions.Component.ToLower() #>_ltmcr.cs
+* Code Generated on         :<#= DateTime.Now #>
+* Code Generated From       :<#= string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}",ecrOptions.Customer, ecrOptions.Project, ecrOptions.Ecrno, ecrOptions.Model, ecrOptions.User, ecrOptions.DB, ecrOptions.CodegenClient) #>
+* Revision/Version #        :
+* Purpose                   :
+* Modifications             :
+* Modifier Name & Date      :
+********************************************************************************************************/
+using System;
+using System.Reflection;
+using System.Diagnostics;
+[assembly: AssemblyDescription("<#= ecrOptions.Customer #>/<#= ecrOptions.Project #>/<#= ecrOptions.Ecrno #>/<#= ecrOptions.Model.Replace('\\','-') #>/<#= ecrOptions.User #>/<#= ecrOptions.DB #>/<#= ecrOptions.CodegenClient #>/<#= DateTime.Now.ToShortDateString() #>")]
+//transction scope - Dotnet ltm transaction scope - 0 - Required, 1 - Required New, 2 - Supported
+// model scope - 0 Supported, 1 - Required
+//outZBytes - true - zipped byte[]  , false - string
+//tdFormat = 0 - String , 1- JSON , 2-Dataset
+namespace com.ramco.vw.<#= ecrOptions.Component.ToLower() #>.service
+{
+	public class C<#= ecrOptions.Component.ToLower() #>_ltmcr
+	{
+		public const int ATMA_SUCCESS = 0;
+		public const int ATMA_FAILURE = 999;
+		public const int ATMA_INVALID_SERVICE = 998;
+
+
+		public int ProcessDocument(string szInMtd, string szServiceName, string szSessionToken, bool outZBytes, int tdFormat, ref string szOutMtd, ref byte[] byteOutMtd)
+		{
+			DefaultTraceListener output = new DefaultTraceListener();
+			try
+			{
+				szOutMtd = "";
+				byteOutMtd = null;
+
+				C<#= ecrOptions.Component.ToLower() #>_ltm c<#= ecrOptions.Component.ToLower() #>_ltm = new C<#= ecrOptions.Component.ToLower() #>_ltm();
+				switch (szServiceName.ToLower().Trim())
+				{
+					<#
+				    foreach(Service service in this.services)
+					{
+					#>case("<#= service.Name.ToLower() #>"):
+						output.WriteLine("<#= ecrOptions.Component.ToUpper() #>.C<#= ecrOptions.Component.ToLower() #>_ltmcr.ProcessDocument - <#= service.Name.ToLower() #> service started.");
+						if (c<#= ecrOptions.Component.ToLower() #>_ltm.ProcessDocument(szInMtd, szServiceName, szSessionToken, <#= service.Type=="0" ? "2" : "0"  #>, outZBytes, tdFormat, out szOutMtd, out byteOutMtd) == 0)
+						{
+							output.WriteLine("<#= ecrOptions.Component.ToUpper() #>.C<#= ecrOptions.Component.ToLower() #>_ltmcr.ProcessDocument - <#= service.Name.ToLower() #> service executed successfully.");
+							return ATMA_SUCCESS;
+						}
+						else
+						{
+							output.WriteLine("<#= ecrOptions.Component.ToUpper() #>.C<#= ecrOptions.Component.ToLower() #>_ltmcr.ProcessDocument - <#= service.Name.ToLower() #> service executed with a failure.");
+							return ATMA_FAILURE;
+						}
+					<#
+					}
+					#>default:
+						output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_ltmcr.ProcessDocument - Service referred Is Not part of the runtime component-" + szServiceName);
+						return ATMA_INVALID_SERVICE;
+				}
+			}
+			catch (Exception e)
+			{
+				output.WriteLine("C<#= ecrOptions.Component.ToLower() #>_ltmcr.ProcessDocument - General Exception :");
+				output.WriteLine(e.Message);
+				szOutMtd = "";
+				return ATMA_FAILURE;
+			}
+			finally
+			{
+			}
+		}
+	}
+}
+<#+
+private System.Collections.Generic.List<Service> services;
+public ECRLevelOptions ecrOptions{get;set;}
+public Template_ltmcr(System.Collections.Generic.List<Service> _services)
+{
+	this.services = _services;	
+}
+#>
